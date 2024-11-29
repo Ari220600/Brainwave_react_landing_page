@@ -5,17 +5,25 @@ import { ScrollTrigger } from "gsap/all";
 gsap.registerPlugin(ScrollTrigger);
 const CompanyLogos = ({ className }) => {
   useGSAP(() => {
-    gsap.from("#tag", {
-      scrollTrigger: {
-        trigger: "#chip",
-        toggleActions: "restart reverse restart reverse",
-        start: "20% top",
+    gsap.fromTo(
+      ".logos",
+      {
+        opacity: 0,
+        scale: 0,
+        duration: 1,
       },
-      opacity: 0,
-      scale: 0.5,
-      duration: 2,
-      ease: "power2.inOut",
-    });
+      {
+        scrollTrigger: {
+          trigger: "#tag",
+          toggleActions: "restart reverse restart reverse",
+          start: "top 50% bottom 80%",
+        },
+        opacity: 1,
+        scale: 1,
+        duration: 1,
+        stagger: 0.1,
+      }
+    );
   });
   return (
     <div className={className}>
@@ -25,7 +33,7 @@ const CompanyLogos = ({ className }) => {
       <ul className="flex">
         {companyLogos.map((logo, index) => (
           <li
-            className="flex items-center justify-center flex-1 h-[8.5rem]"
+            className="flex items-center justify-center flex-1 h-[8.5rem] logos"
             key={index}
           >
             <img src={logo} width={134} height={28} alt={logo} />

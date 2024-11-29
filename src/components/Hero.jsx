@@ -11,6 +11,7 @@ import CompanyLogos from "./CompanyLogos";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/all";
 import gsap from "gsap";
+import Benefits from "./Benefits";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -18,20 +19,42 @@ const Hero = () => {
   const parallaxRef = useRef(null);
 
   useGSAP(() => {
-    gsap.from("#main", {
-      opacity: 0,
-      // scale: 0.5,
-      x: -100,
-      duration: 1,
-      ease: "power2.inOut",
-    });
-    gsap.from("#scnd", {
-      opacity: 0,
-      scale: 0.5,
-      // x: -100,
-      duration: 1,
-      ease: "power2.inOut",
-    });
+    gsap.fromTo(
+      "#main",
+      { opacity: 0, x: -100, scale: 0.5 },
+
+      {
+        scrollTrigger: {
+          trigger: "#main",
+          toggleActions: "restart reverse restart reverse",
+          start: "top 50% bottom 80%",
+        },
+        opacity: 1,
+        scale: 1,
+        x: 0,
+        duration: 1,
+      }
+    );
+    gsap.fromTo(
+      "#scnd",
+      {
+        opacity: 0,
+        x: -100,
+        duration: 1,
+        ease: "power2.inOut",
+      },
+      {
+        scrollTrigger: {
+          trigger: "#scnd",
+          toggleActions: "restart reverse restart reverse",
+          start: "top 50% bottom 80%",
+        },
+        opacity: 1,
+        x: 0,
+        duration: 1,
+        delay: 1,
+      }
+    );
   });
 
   return (
