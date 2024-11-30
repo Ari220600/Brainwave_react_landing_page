@@ -27,7 +27,9 @@ const Hero = () => {
         scrollTrigger: {
           trigger: ".g_grow1",
           toggleActions: "restart reverse restart reverse",
-          start: "top 50% bottom 70%",
+          start: "top center",
+          end: "+=800 center",
+          scrub: 0.5,
         },
         scale: 1.2,
         duration: 3,
