@@ -3,7 +3,7 @@ import { smallSphere, stars } from "../assets";
 import Heading from "./Heading";
 import PricingList from "./PricingList";
 import { LeftLine, RightLine } from "./design/Pricing";
-import { ScrollParallax } from "react-just-parallax";
+import { MouseParallax } from "react-just-parallax";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/all";
 import gsap from "gsap";
@@ -39,7 +39,7 @@ const Pricing = () => {
   return (
     <Section className="overflow-hidden" id="pricing">
       <div className="container relative z-2">
-        <ScrollParallax>
+        <MouseParallax>
           <div className="hidden relative justify-center mb-[6.5rem] lg:flex">
             <img
               src={smallSphere}
@@ -58,7 +58,7 @@ const Pricing = () => {
               />
             </div>
           </div>
-        </ScrollParallax>
+        </MouseParallax>
 
         <Heading
           className={`hdng`}
