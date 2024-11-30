@@ -13,23 +13,10 @@ import Generating from "./Generating";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/all";
 import gsap from "gsap";
-import { animateWithGsap } from "../utils/animation";
 gsap.registerPlugin(ScrollTrigger);
 
 const Services = () => {
   useGSAP(() => {
-    // animateWithGsap('#features_title',{y:0,opacity:1})
-    // animateWithGsap(
-    //   ".g_grow",
-    //   {
-    // scale: 1,
-    // opacity: 1,
-    // ease: "power1",
-    //   },
-    //   {
-    //     scrub: 5.5,
-    //   }
-    // );
     gsap.fromTo(
       ".g_grow",
       {

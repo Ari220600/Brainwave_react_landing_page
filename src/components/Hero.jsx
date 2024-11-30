@@ -19,6 +19,23 @@ const Hero = () => {
 
   useGSAP(() => {
     gsap.fromTo(
+      ".g_grow1",
+      {
+        scale: 1,
+      },
+      {
+        scrollTrigger: {
+          trigger: ".g_grow1",
+          toggleActions: "restart reverse restart reverse",
+          start: "top 50% bottom 70%",
+        },
+        scale: 1.2,
+        duration: 3,
+        ease: "power1",
+        scrib: 5.5,
+      }
+    );
+    gsap.fromTo(
       "#main",
       { opacity: 0, x: -100, scale: 0.5 },
 
@@ -98,7 +115,7 @@ const Hero = () => {
               <div className="aspect-[33/40] rounded-b-[0.9rem] overflow-hidden md:aspect-[688/490] lg:aspect-[1024/490]">
                 <img
                   src={robot}
-                  className="w-full scale-[1.7] translate-y-[8%] md:scale-[1] md:-translate-y-[10%] lg:-translate-y-[23%]"
+                  className="w-full scale-[1.7] translate-y-[8%] md:scale-[1] md:-translate-y-[10%] lg:-translate-y-[23%] g_grow1"
                   width={1024}
                   height={490}
                   alt="AI"
